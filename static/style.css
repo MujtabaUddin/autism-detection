@@ -1,58 +1,87 @@
 body {
-    font-family: 'Segoe UI', sans-serif;
-    background-color: #0b0455;
-    color: #333;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f2f5f9;
+    margin: 0;
     padding: 20px;
+    color: #333;
 }
 
 .container {
-    max-width: 600px;
+    max-width: 900px;
     margin: auto;
-    background: rgb(251, 251, 252);
+    background: #fff;
     padding: 30px;
     border-radius: 12px;
-    box-shadow: 0 8px 16px rgba(18, 207, 237, 0.1);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
 }
 
 h1 {
     text-align: center;
+    color: #1d3557;
     margin-bottom: 25px;
-    color: #77a6d9;
 }
 
-.form-group {
-    margin-bottom: 15px;
+.questions-box {
+    background-color: #eef2f7;
+    padding: 15px 20px;
+    border-left: 5px solid #457b9d;
+    border-radius: 8px;
+    margin-bottom: 30px;
 }
 
-label {
-    display: block;
-    margin-bottom: 6px;
+.questions-box ul {
+    list-style-type: disc;
+    padding-left: 20px;
 }
 
-input[type="number"] {
-    width: 100%;
-    padding: 8px;
+.form-card {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px 30px;
+    background-color: #f9f9fb;
+    padding: 25px;
+    border-radius: 10px;
     border: 1px solid #ccc;
-    border-radius: 6px;
 }
 
-button {
+.form-card label {
+    grid-column: span 2;
+    font-weight: bold;
+}
+
+.form-card select,
+.form-card input {
+    padding: 8px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
     width: 100%;
-    background-color: #007BFF;
-    color: white;
-    padding: 10px;
-    font-size: 16px;
+}
+
+button[type="submit"] {
+    grid-column: span 2;
+    background-color: #1d3557;
+    color: #fff;
+    padding: 12px;
     border: none;
-    border-radius: 6px;
+    border-radius: 8px;
+    font-size: 16px;
     cursor: pointer;
+    margin-top: 15px;
 }
 
-button:hover {
-    background-color: #000000;
+button[type="submit"]:hover {
+    background-color: #457b9d;
 }
 
-.result {
-    margin-top: 20px;
+.prediction-box {
+    margin-top: 30px;
+    padding: 15px;
+    border: 2px dashed #1d3557;
+    border-radius: 8px;
+    background-color: #edf6f9;
     text-align: center;
-    font-size: 18px;
+    font-size: 20px;
+    font-weight: bold;
+    color: #1d3557;
 }
+
