@@ -4,46 +4,96 @@
     <meta charset="UTF-8">
     <title>Autism Screening Predictor</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
     <div class="container">
         <h1>🧠 Autism Screening Predictor</h1>
-        <div class="questions-box">
-            <h2>Answer the following questions:</h2>
-            <ul>
-                <li>A1: I often notice small sounds when others do not.</li>
-                <li>A2: I usually concentrate more on the whole picture, rather than the small details.</li>
-                <li>A3: In a social group, I can easily keep track of several different people's conversations.</li>
-                <li>A4: I find it easy to go back and forth between different activities.</li>
-                <li>A5: I don't know how to keep a conversation going with my peers.</li>
-                <li>A6: I am good at social chit-chat.</li>
-                <li>A7: When I'm reading a story, I find it difficult to work out the characters' intentions or feelings.</li>
-                <li>A8: When I was in preschool, I used to enjoy playing games involving pretending with other children.</li>
-                <li>A9: I like to collect information about categories of things (e.g. types of car, bird, plant, etc).</li>
-                <li>A10: I find it easy to work out what someone is thinking or feeling.</li>
-            </ul>
-        </div>
+
+        <p class="description">Answer the following questions to receive a prediction based on behavioral traits and background information. This is a non-clinical tool.</p>
 
         <form action="/predict" method="post" class="form-card">
-            {% for i in range(1, 10 + 1) %}
-                <label for="A{{ i }}_Score">A{{ i }}_Score:</label>
-                <select name="A{{ i }}_Score" required>
-                    <option value="">-- Select --</option>
-                    <option value="1">Yes</option>
-                    <option value="0">No</option>
-                </select>
-            {% endfor %}
-
+            <label>A1: I often notice small sounds when others do not.</label>
+            <select name="A1_Score" required>
+                <option value="">-- Select --</option>
+                <option value="1">Yes</option>
+                <option value="0">No</option>
+            </select>
+        
+            <label>A2: I usually concentrate more on the whole picture, rather than the small details.</label>
+            <select name="A2_Score" required>
+                <option value="">-- Select --</option>
+                <option value="1">Yes</option>
+                <option value="0">No</option>
+            </select>
+        
+            <label>A3: In a social group, I can easily keep track of several different people's conversations.</label>
+            <select name="A3_Score" required>
+                <option value="">-- Select --</option>
+                <option value="1">Yes</option>
+                <option value="0">No</option>
+            </select>
+        
+            <label>A4: I find it easy to go back and forth between different activities.</label>
+            <select name="A4_Score" required>
+                <option value="">-- Select --</option>
+                <option value="1">Yes</option>
+                <option value="0">No</option>
+            </select>
+        
+            <label>A5: I don't know how to keep a conversation going with my peers.</label>
+            <select name="A5_Score" required>
+                <option value="">-- Select --</option>
+                <option value="1">Yes</option>
+                <option value="0">No</option>
+            </select>
+        
+            <label>A6: I am good at social chit-chat.</label>
+            <select name="A6_Score" required>
+                <option value="">-- Select --</option>
+                <option value="1">Yes</option>
+                <option value="0">No</option>
+            </select>
+        
+            <label>A7: When I'm reading a story, I find it difficult to work out the characters' intentions or feelings.</label>
+            <select name="A7_Score" required>
+                <option value="">-- Select --</option>
+                <option value="1">Yes</option>
+                <option value="0">No</option>
+            </select>
+        
+            <label>A8: When I was in preschool, I used to enjoy playing games involving pretending with other children.</label>
+            <select name="A8_Score" required>
+                <option value="">-- Select --</option>
+                <option value="1">Yes</option>
+                <option value="0">No</option>
+            </select>
+        
+            <label>A9: I like to collect information about categories of things (e.g. types of car, bird, plant, etc).</label>
+            <select name="A9_Score" required>
+                <option value="">-- Select --</option>
+                <option value="1">Yes</option>
+                <option value="0">No</option>
+            </select>
+        
+            <label>A10: I find it easy to work out what someone is thinking or feeling.</label>
+            <select name="A10_Score" required>
+                <option value="">-- Select --</option>
+                <option value="1">Yes</option>
+                <option value="0">No</option>
+            </select>
+        
+            <!-- Remaining fields -->
             <label for="age">Age:</label>
             <input type="number" name="age" step="any" required>
-
+        
             <label for="gender">Gender:</label>
             <select name="gender">
                 <option value="">-- Select --</option>
                 <option value="male">Male</option>
                 <option value="female">Female</option>
             </select>
-
+        
             <label for="ethnicity">Ethnicity:</label>
             <select name="ethnicity">
                 <option value="">-- Select --</option>
@@ -54,21 +104,21 @@
                 <option value="middle eastern">Middle Eastern</option>
                 <option value="others">Others</option>
             </select>
-
+        
             <label for="jundice">Jaundice:</label>
             <select name="jundice">
                 <option value="">-- Select --</option>
                 <option value="yes">Yes</option>
                 <option value="no">No</option>
             </select>
-
+        
             <label for="autism">Family History of Autism:</label>
             <select name="autism">
                 <option value="">-- Select --</option>
                 <option value="yes">Yes</option>
                 <option value="no">No</option>
             </select>
-
+        
             <label for="contry_of_res">Country of Residence:</label>
             <select name="contry_of_res">
                 <option value="">-- Select --</option>
@@ -80,17 +130,19 @@
                 <option value="uae">UAE</option>
                 <option value="others">Others</option>
             </select>
-
+        
             <button type="submit">Predict</button>
         </form>
+        
 
         {% if prediction %}
             <div class="prediction-box">
-                <h2>Prediction:</h2>
-                <p>{{ prediction }}</p>
+                <h2>Prediction Result:</h2>
+                <p class="result">{{ prediction }}</p>
             </div>
         {% endif %}
     </div>
 </body>
 </html>
+
 

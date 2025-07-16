@@ -1,5 +1,7 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: 'Roboto', sans-serif;
     background-color: #f2f5f9;
     margin: 0;
     padding: 20px;
@@ -13,12 +15,26 @@ body {
     padding: 30px;
     border-radius: 12px;
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    animation: fadeIn 0.6s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
 }
 
 h1 {
     text-align: center;
     color: #1d3557;
+    margin-bottom: 15px;
+    font-size: 32px;
+}
+
+.description {
+    text-align: center;
     margin-bottom: 25px;
+    color: #666;
+    font-size: 16px;
 }
 
 .questions-box {
@@ -44,17 +60,34 @@ h1 {
     border: 1px solid #ccc;
 }
 
+.form-card fieldset {
+    grid-column: span 2;
+    border: none;
+    padding: 0;
+    margin-bottom: 20px;
+}
+
+.form-card legend {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: #1d3557;
+}
+
 .form-card label {
     grid-column: span 2;
     font-weight: bold;
+    margin-bottom: 4px;
+    margin-top: 10px;
 }
 
 .form-card select,
 .form-card input {
-    padding: 8px;
+    padding: 10px;
     border-radius: 5px;
-    border: 1px solid #ccc;
+    border: 1px solid #888;
     width: 100%;
+    font-size: 15px;
 }
 
 button[type="submit"] {
@@ -67,6 +100,7 @@ button[type="submit"] {
     font-size: 16px;
     cursor: pointer;
     margin-top: 15px;
+    transition: background-color 0.3s ease-in-out;
 }
 
 button[type="submit"]:hover {
@@ -75,7 +109,7 @@ button[type="submit"]:hover {
 
 .prediction-box {
     margin-top: 30px;
-    padding: 15px;
+    padding: 20px;
     border: 2px dashed #1d3557;
     border-radius: 8px;
     background-color: #edf6f9;
@@ -83,5 +117,18 @@ button[type="submit"]:hover {
     font-size: 20px;
     font-weight: bold;
     color: #1d3557;
+    animation: popIn 0.5s ease-in-out;
+}
+
+@keyframes popIn {
+    0% { transform: scale(0.9); opacity: 0; }
+    100% { transform: scale(1); opacity: 1; }
+}
+
+/* Responsive layout */
+@media (max-width: 768px) {
+    .form-card {
+        grid-template-columns: 1fr;
+    }
 }
 
