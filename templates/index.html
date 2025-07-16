@@ -136,11 +136,16 @@
         
 
         {% if prediction %}
-            <div class="prediction-box">
-                <h2>Prediction Result:</h2>
-                <p class="result">{{ prediction }}</p>
-            </div>
-        {% endif %}
+    <div class="prediction-box">
+        <h2>Prediction:</h2>
+        <p>{{ prediction }}</p>
+    </div>
+    <div class="diagnosis-box">
+        <h2>Diagnosis:</h2>
+        <p>{{ diagnosis }}</p>
+    </div>
+{% endif %}
+
     </div>
 </body>
 </html>
