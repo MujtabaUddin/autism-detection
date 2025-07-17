@@ -2,7 +2,7 @@
 
 body {
     font-family: 'Roboto', sans-serif;
-    background-color: #f2f5f9;
+    background-color: #f8f9fa;
     margin: 0;
     padding: 20px;
     color: #333;
@@ -27,7 +27,7 @@ h1 {
     text-align: center;
     color: #1d3557;
     margin-bottom: 15px;
-    font-size: 32px;
+    font-size: 2.2rem;
 }
 
 .description {
@@ -119,16 +119,30 @@ button[type="submit"]:hover {
     color: #1d3557;
     animation: popIn 0.5s ease-in-out;
 }
+.btn-download {
+    display: inline-block;
+    background-color: #1d3557;
+    color: #fff;
+    padding: 10px 15px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: bold;
+    margin-top: 10px;
+}
+.btn-download:hover {
+    background-color: #457b9d;
+}
+
 .diagnosis-box {
     margin-top: 20px;
     padding: 15px;
-    border: 2px solid #ffb703;
-    background-color: #fff3cd;
+    background-color: #fff5e6;
+    border-left: 6px solid #f4a261;
     border-radius: 8px;
-    text-align: center;
-    font-size: 18px;
-    color: #6b4c03;
+    font-size: 16px;
+    color: #333;
 }
+
 
 
 @keyframes popIn {

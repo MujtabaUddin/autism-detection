@@ -32,6 +32,8 @@ for field in categorical_fields:
     df[field] = le.fit_transform(df[field])
     label_encoders[field] = le
 
+df['ASD_Class'] = df['ASD_Class'].str.lower().map({'yes': 1, 'no': 0})
+
 # Features and target
 X = df.drop(['ASD_Class'], axis=1)
 y = df['ASD_Class']
@@ -60,6 +62,7 @@ with open("model.pkl", "wb") as f:
 # Save label encoders
 with open("label_encoders.pkl", "wb") as f:
     pickle.dump(label_encoders, f)
+
 
 
 
