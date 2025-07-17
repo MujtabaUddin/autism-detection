@@ -1,1 +1,8 @@
-wheel==0.45.1
+flask
+gunicorn
+scikit-learn
+pandas
+numpy
+imblearn
+matplotlib
+reportlab
